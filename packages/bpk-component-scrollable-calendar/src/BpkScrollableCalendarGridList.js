@@ -29,7 +29,7 @@ import {
   CellMeasurerCache,
 } from 'react-virtualized';
 
-import STYLES from './bpk-scrollable-calendar-grid-list.scss';
+import STYLES from './bpk-scrollable-calendar-grid-list.css';
 import BpkScrollableCalendarGrid from './BpkScrollableCalendarGrid';
 import getMonthsArray from './utils';
 
