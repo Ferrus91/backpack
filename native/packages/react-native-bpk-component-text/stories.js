@@ -25,6 +25,7 @@ import {
   colorGray500,
   colorGreen500,
   colorYellow500,
+  colorPink500,
 } from 'bpk-tokens/tokens/base.react.native';
 import { View, Platform } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
@@ -36,55 +37,107 @@ storiesOf('react-native-bpk-component-text', module)
   .addDecorator(CenterDecorator)
   .add('docs:default', () => (
     <View>
+      <BpkText textStyle="xxxl">Flights to Edinburgh</BpkText>
       <BpkText textStyle="xxl">Flights to Edinburgh</BpkText>
       <BpkText textStyle="xl">Flights to Edinburgh</BpkText>
       <BpkText textStyle="lg">Flights to Edinburgh</BpkText>
       <BpkText textStyle="base">Flights to Edinburgh</BpkText>
+      <BpkText textStyle="md">Flights to Edinburgh</BpkText>
       <BpkText textStyle="sm">Flights to Edinburgh</BpkText>
-      <BpkText textStyle="xs">Flights to Edinburgh</BpkText>
+      <BpkText textStyle="caps">FLIGHTS TO EDINBURGH</BpkText>
     </View>
   ))
   .add('docs:emphasize', () => (
     <View>
-      <BpkText textStyle="xxl" emphasize={Platform.OS === 'android'}>
+      <BpkText
+        textStyle="xxxl"
+        emphasize={Platform.OS === 'android' ? 'semiBold' : 'regular'}
+      >
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="xl" emphasize>
+      <BpkText
+        textStyle="xxl"
+        emphasize={Platform.OS === 'android' ? 'semiBold' : 'regular'}
+      >
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="lg" emphasize>
+      <BpkText textStyle="xl" emphasize="regular">
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="base" emphasize>
+      <BpkText textStyle="lg" emphasize="regular">
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="sm" emphasize>
+      <BpkText textStyle="base" emphasize="regular">
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="xs" emphasize>
+      <BpkText textStyle="md" emphasize="regular">
         Flights to Edinburgh
+      </BpkText>
+      <BpkText textStyle="sm" emphasize="regular">
+        Flights to Edinburgh
+      </BpkText>
+      <BpkText textStyle="caps" emphasize="regular">
+        FLIGHTS TO EDINBURGH
       </BpkText>
     </View>
   ))
   .add('Colours', () => (
     <View>
-      <BpkText textStyle="xxl" style={{ color: colorBlue700 }}>
+      <BpkText
+        textStyle="xxxl"
+        emphasize={Platform.OS === 'android' ? 'semiBold' : 'regular'}
+        style={{ color: colorBlue700 }}
+      >
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="xl" style={{ color: colorRed500 }}>
+      <BpkText
+        textStyle="xxl"
+        emphasize={Platform.OS === 'android' ? 'semiBold' : 'regular'}
+        style={{ color: colorRed500 }}
+      >
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="lg" style={{ color: colorGreen500 }}>
+      <BpkText
+        textStyle="xl"
+        emphasize="regular"
+        style={{ color: colorGreen500 }}
+      >
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="base" style={{ color: colorYellow500 }}>
+      <BpkText
+        textStyle="lg"
+        emphasize="regular"
+        style={{ color: colorYellow500 }}
+      >
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="sm" style={{ color: colorBlue700 }}>
+      <BpkText
+        textStyle="base"
+        emphasize="regular"
+        style={{ color: colorPink500 }}
+      >
         Flights to Edinburgh
       </BpkText>
-      <BpkText textStyle="xs" style={{ color: colorGray500 }}>
+      <BpkText
+        textStyle="md"
+        emphasize="regular"
+        style={{ color: colorBlue700 }}
+      >
         Flights to Edinburgh
+      </BpkText>
+      <BpkText
+        textStyle="sm"
+        emphasize="regular"
+        style={{ color: colorGray500 }}
+      >
+        Flights to Edinburgh
+      </BpkText>
+      <BpkText
+        textStyle="caps"
+        emphasize="regular"
+        style={{ color: colorRed500 }}
+      >
+        FLIGHTS TO EDINBURGH
       </BpkText>
     </View>
   ));

@@ -24,8 +24,8 @@ import {
   fontFamily,
   fontFamilyEmphasize,
   textEmphasizedFontWeight,
-  textXsFontSize,
-  textXsFontWeight,
+  textCapsFontSize,
+  textCapsFontWeight,
   textSmFontSize,
   textSmFontWeight,
   textBaseFontSize,
@@ -43,18 +43,22 @@ import { shouldApplyFontWeightFix } from './font-weight-fix';
 import { propTypes, defaultProps, type Props } from './common-types';
 
 const TEXT_TOKENS = {
-  textXsFontSize,
-  textXsFontWeight,
-  textSmFontSize,
+  textCapsFontSize: 10,
+  textCapsFontWeight,
+  textSmFontSize: 12,
   textSmFontWeight,
-  textBaseFontSize,
+  textMdFontSize: 14,
+  textMdFontWeight: '500',
+  textBaseFontSize: 16,
   textBaseFontWeight,
-  textLgFontSize,
+  textLgFontSize: 20,
   textLgFontWeight,
-  textXlFontSize,
+  textXlFontSize: 24,
   textXlFontWeight,
-  textXxlFontSize,
+  textXxlFontSize: 36,
   textXxlFontWeight,
+  textXxxlFontSize: 42,
+  textXxxlFontWeight: '500',
 };
 
 const getStyleByTextStyle = textStyle => {
@@ -86,12 +90,14 @@ const getEmphasizeProperties = () => {
 };
 
 const styles = StyleSheet.create({
-  xs: { ...getStyleByTextStyle('xs') },
+  caps: { ...getStyleByTextStyle('caps') },
   sm: { ...getStyleByTextStyle('sm') },
+  md: { ...getStyleByTextStyle('md') },
   base: { ...getStyleByTextStyle('base') },
   lg: { ...getStyleByTextStyle('lg') },
   xl: { ...getStyleByTextStyle('xl') },
   xxl: { ...getStyleByTextStyle('xxl') },
+  xxxl: { ...getStyleByTextStyle('xxxl') },
 });
 
 const BpkText = (props: Props) => {
@@ -101,7 +107,8 @@ const BpkText = (props: Props) => {
   // Emphasize on iOS is not supported for the XXL size. This is also checked with
   // the `emphasizePropType` prop.
   const shouldEmpasize =
-    emphasize && !(Platform.OS === 'ios' && textStyle === 'xxl');
+    emphasize !== 'regular' &&
+    !(Platform.OS === 'ios' && textStyle.includes('xxl'));
 
   if (shouldEmpasize) {
     style.push(getEmphasizeProperties());
@@ -111,7 +118,7 @@ const BpkText = (props: Props) => {
     }
   }
 
-  if (shouldApplyFontWeightFix && textStyle === 'xxl') {
+  if (shouldApplyFontWeightFix && textStyle.includes('xxl')) {
     style.push({ fontWeight: '800' });
   }
 
